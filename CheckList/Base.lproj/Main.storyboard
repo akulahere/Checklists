@@ -16,27 +16,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ChecklistItem" id="3l9-bs-Jr0">
-                                <rect key="frame" x="0.0" y="44.5" width="375" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ChecklistItem" id="3l9-bs-Jr0">
+                                <rect key="frame" x="0.0" y="44.5" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3l9-bs-Jr0" id="fVB-7A-FGh">
-                                    <rect key="frame" x="0.0" y="0.0" width="338.5" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="322" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3b-Ap-rbe">
-                                            <rect key="frame" x="16" y="11" width="306.5" height="21"/>
+                                            <rect key="frame" x="62" y="11" width="244" height="27.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" √" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFj-C5-ShY">
+                                            <rect key="frame" x="16" y="11" width="19" height="28"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="FFj-C5-ShY" firstAttribute="centerY" secondItem="H3b-Ap-rbe" secondAttribute="centerY" id="0Uy-qm-8qQ"/>
                                         <constraint firstAttribute="bottom" secondItem="H3b-Ap-rbe" secondAttribute="bottom" constant="11.5" id="9dH-nt-Igz"/>
                                         <constraint firstAttribute="trailing" secondItem="H3b-Ap-rbe" secondAttribute="trailing" constant="16" id="P03-uY-err"/>
+                                        <constraint firstItem="FFj-C5-ShY" firstAttribute="baseline" secondItem="H3b-Ap-rbe" secondAttribute="baseline" constant="-1" id="R6X-WC-aEn"/>
                                         <constraint firstItem="H3b-Ap-rbe" firstAttribute="top" secondItem="fVB-7A-FGh" secondAttribute="top" constant="11" id="RVp-q8-d6B"/>
-                                        <constraint firstItem="H3b-Ap-rbe" firstAttribute="leading" secondItem="fVB-7A-FGh" secondAttribute="leading" constant="16" id="qbR-PT-08t"/>
+                                        <constraint firstItem="FFj-C5-ShY" firstAttribute="leading" secondItem="fVB-7A-FGh" secondAttribute="leadingMargin" id="lDk-i8-dMy"/>
+                                        <constraint firstItem="H3b-Ap-rbe" firstAttribute="leading" secondItem="fVB-7A-FGh" secondAttribute="leading" constant="62" id="qbR-PT-08t"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="OND-hX-3X9" kind="show" identifier="EditItem" trigger="accessoryAction" id="Yt0-nI-QZQ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -59,7 +71,7 @@
         <!--Add item-->
         <scene sceneID="FpN-Ym-GTo">
             <objects>
-                <tableViewController id="OND-hX-3X9" customClass="AddItemViewController" customModule="CheckList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="OND-hX-3X9" customClass="ItemDetailViewController" customModule="CheckList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="bPk-Wv-IaP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -140,6 +152,9 @@
             <point key="canvasLocation" x="218.40000000000001" y="-95.802098950524751"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Yt0-nI-QZQ"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
