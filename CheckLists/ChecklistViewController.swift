@@ -9,16 +9,13 @@ import UIKit
 
 class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate {
   var items = [ChecklistItem]()
-  var row0item = ChecklistItem()
-  var row1item = ChecklistItem()
-  var row2item = ChecklistItem()
-  var row3item = ChecklistItem()
-  var row4item = ChecklistItem()
+  var checklist: Checklist!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    navigationController?.navigationBar.prefersLargeTitles = true
+    navigationItem.largeTitleDisplayMode = .never
     loadChecklistItems()
+    title = checklist.name
   }
   
   func documentsDirectory() -> URL {
