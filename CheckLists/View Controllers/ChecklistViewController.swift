@@ -18,6 +18,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
   }
   
   // MARK: Table View Data Source
+
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return checklist.items.count
   }
@@ -32,6 +33,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
   }
   
   // MARK: Table View Delegate
+
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if let cell = tableView.cellForRow(at: indexPath) {
       let item = checklist.items[indexPath.row]
@@ -89,6 +91,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
   }
   
   // MARK: - Navigation
+
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "AddItem" {
       let controller = segue.destination as! ItemDetailViewController
@@ -102,4 +105,3 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     }
   }
 }
-

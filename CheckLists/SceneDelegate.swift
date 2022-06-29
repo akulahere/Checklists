@@ -41,9 +41,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   }
 
   // MARK: - Helper Methods
+
   func saveData() {
     dataModel.saveChecklists()
   }
 }
-
-

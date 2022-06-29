@@ -16,17 +16,15 @@ class DataModel {
       UserDefaults.standard.set(newValue, forKey: "ChecklistIndex")
     }
   }
-  
+
   init() {
-    
     loadChecklists()
     registerDefaults()
     handleFirstTime()
   }
-  
 
-  
   // MARK: - Data Saving
+
   func documentsDirectory() -> URL {
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     return paths[0]
@@ -48,7 +46,6 @@ class DataModel {
     }
   }
 
-
   func loadChecklists() {
     let path = dataFilePath()
     if let data = try? Data(contentsOf: path) {
@@ -63,15 +60,13 @@ class DataModel {
       }
     }
   }
-  
+
   func sortChecklists() {
     lists.sort { list1, list2 in
-      return list1.name.localizedStandardCompare(list2.name) == .orderedAscending
+      list1.name.localizedStandardCompare(list2.name) == .orderedAscending
     }
-
-    
   }
-  
+
   // MARK: - Defaults
 
   func registerDefaults() {
@@ -81,7 +76,7 @@ class DataModel {
     ] as [String: Any]
     UserDefaults.standard.register(defaults: dictionary)
   }
-  
+
   func handleFirstTime() {
     let userDefaults = UserDefaults.standard
     let firstTime = userDefaults.bool(forKey: "FirstTime")
@@ -94,8 +89,4 @@ class DataModel {
       userDefaults.set(false, forKey: "FirstTime")
     }
   }
-  
-
-
 }
-

@@ -17,9 +17,9 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
   weak var delegate: AddItemViewControllerDelegate?
   var itemToEdit: ChecklistItem?
   
-  @IBOutlet weak var textField: UITextField!
+  @IBOutlet var textField: UITextField!
   
-  @IBOutlet weak var doneBarButton: UIBarButtonItem!
+  @IBOutlet var doneBarButton: UIBarButtonItem!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,12 +30,14 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
       doneBarButton.isEnabled = true
     }
   }
+
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     textField.becomeFirstResponder()
   }
   
   // MARK: - Actions
+
   @IBAction func cancel() {
     delegate?.itemDetailViewControllerDidCancel(self)
   }
@@ -52,11 +54,13 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
   }
   
   // MARK: - Table View Delegates
+
   override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
     return nil
   }
   
   // MARK: - Text Field Delegates
+
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
     let oldText = textField.text!
     
@@ -74,7 +78,4 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     doneBarButton.isEnabled = false
     return true
   }
-
-  
 }
-
