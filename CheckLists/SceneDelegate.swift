@@ -8,21 +8,15 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
   var window: UIWindow?
   let dataModel = DataModel()
 
-
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     let navigationController = window!.rootViewController as! UINavigationController
-      let controller = navigationController.viewControllers[0] as! AllListsViewController
-      controller.dataModel = dataModel
+    let controller = navigationController.viewControllers[0] as! AllListsViewController
+    controller.dataModel = dataModel
   }
-  
-  func saveData() {
-    dataModel.saveChecklists()
-  }
-  
+
   func sceneDidDisconnect(_ scene: UIScene) {
     saveData()
   }
@@ -46,6 +40,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     saveData()
   }
 
-
+  // MARK: - Helper Methods
+  func saveData() {
+    dataModel.saveChecklists()
+  }
 }
+
 
